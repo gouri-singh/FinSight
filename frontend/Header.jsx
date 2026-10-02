@@ -1,6 +1,6 @@
+```jsx
 import React from 'react';
 import { PlusCircle, Database, User } from 'lucide-react';
-import logo from '../assets/finsight-logo.png';
 
 export default function Header({
   activeTab,
@@ -21,11 +21,13 @@ export default function Header({
 
   return (
     <header className="top-header">
-      {/* Left side */}
-      <div className="header-left">
+      <div
+        className="header-left"
+        style={{ display: 'flex', alignItems: 'center' }}
+      >
         <img
-          src={logo}
-          alt="FinSight"
+          src="/FinSight/src/assets/finsight-logo.png"
+          alt="FinSight Logo"
           style={{
             width: '40px',
             height: '40px',
@@ -39,10 +41,7 @@ export default function Header({
         </h1>
       </div>
 
-      {/* Right side */}
       <div className="header-right">
-
-        {/* Seed Sample Data */}
         <button
           className="btn btn-secondary"
           onClick={onSeedData}
@@ -53,26 +52,22 @@ export default function Header({
           {seeding ? 'Seeding...' : 'Seed Sample Data'}
         </button>
 
-        {/* Add Transaction */}
         <button
           className="btn btn-primary"
           onClick={onOpenAddModal}
-          title="Add a new transaction"
         >
           <PlusCircle size={18} />
           Add Transaction
         </button>
 
-        {/* User */}
         <div
           className="user-badge"
           style={{ cursor: 'pointer' }}
           onClick={onOpenAuthModal}
-          title="Open account"
         >
           <div className="avatar">
             {user ? (
-              user.username?.charAt(0).toUpperCase()
+              user.username.charAt(0).toUpperCase()
             ) : (
               <User size={18} />
             )}
@@ -87,8 +82,8 @@ export default function Header({
             {user ? user.username : 'Demo User'}
           </span>
         </div>
-
       </div>
     </header>
   );
 }
+```
